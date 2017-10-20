@@ -72,6 +72,32 @@ http://support.amd.com/en-us/kb-articles/Pages/AMDGPU-PRO-Install.aspx
     make
 ```
 
+#### Usage on Linux (Fedora-based distros)
+
+**Download the CentOS 7 AMD Driver**
+
+http://support.amd.com/en-us/kb-articles/Pages/AMDGPU-PRO-Install.aspx
+
+Do not install the full AMDGPU-PRO driver, as Fedora has a newer version of X11 than the driver works with, instead do the following on the AMDGPU-PRO Installer.
+
+Press Y when it prompts to install OpenCL related packages. Ignore the DKMS errors.
+```
+sudo amdgpu-pro-install --compute
+```
+
+```
+    sudo dnf install ocl-icd-devel libmicrohttpd-devel openssl-devel cmake gcc-c++
+    cmake .
+    make
+```
+
+To run the miner with the newly installed OpenCL libraries, create a shell script in the bin folder containing the following
+
+```
+#!/bin/bash
+LD_LIBRARY_PATH=/usr/lib64/amdgpu-pro-opencl/ ./xmr-stak-amd
+```
+
 GCC version 5.1 or higher is required for full C++11 support. CMake release compile scripts, as well as CodeBlocks build environment for debug builds is included.
 
 #### Mining performance 
@@ -79,7 +105,7 @@ GCC version 5.1 or higher is required for full C++11 support. CMake release comp
 Mining core is a direct port (except for sercurity fixes) of wolf9466's AMD mining code. Performance is likely to be identical.
 
 #### Default dev donation
-By default the miner will donate 1% of the hashpower (1 minute in 100 minutes) to my pool. If you want to change that, edit **donate-level.h** before you build the binaries.
+By default the miner will donate 2% of the hashpower (2 minute in 100 minutes) to my pool. If you want to change that, edit **donate-level.h** before you build the binaries.
 
 If you want to donate directly to support further development, here is my wallet
 ```

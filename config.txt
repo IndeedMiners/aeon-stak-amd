@@ -42,8 +42,8 @@
  * wallet_address - Your wallet, or pool login.
  * pool_password  - Can be empty in most cases or "x".
  */
-"pool_address" : "pool.supportxmr.com:3333",
-"wallet_address" : "",
+"pool_address" : "pool.aeon.hashvault.pro:5555",
+"wallet_address" : "WmskqCMoyH65Zst2VtFwsWWZZEP81fd3Z7XcsMumf6nxC12ACz8sFfoAbVGARofz6fTthnkuJjwC2FwpRP29ZaKL1iq88hTaT",
 "pool_password" : "",
 
 /*

@@ -1,4 +1,4 @@
-project(xmr-stak-amd)
+project(aeon-stak-amd)
 
 cmake_minimum_required(VERSION 3.1.3)
 
@@ -86,6 +86,14 @@ if(OpenSSL_ENABLE)
     endif()
 else()
     add_definitions("-DCONF_NO_TLS")
+endif()
+
+################################################################################
+# Windows Sockets
+################################################################################
+
+if(WIN32)
+    set(LIBS ${LIBS} wsock32 ws2_32)
 endif()
 
 ################################################################################
